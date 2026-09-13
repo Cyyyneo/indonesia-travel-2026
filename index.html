@@ -143,7 +143,7 @@
 
         .booking-item.pending {
             border-left: 4px solid #f39c12;
-            background: rgba(243, 156, 18, 0.05);
+            background: rgba(243, 156, 18, 0.25);
         }
 
         .booking-item.confirmed {
@@ -246,6 +246,79 @@
         .collapsible-content.active {
             display: block;
         }
+
+        /* PDF预览弹窗样式 */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .pdf-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pdf-modal-content {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-modal-header {
+            background: #2c3e50;
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pdf-modal-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .pdf-close {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .pdf-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pdf-viewer {
+            flex: 1;
+            width: 100%;
+            border: none;
+        }
+
 
         /* 时间线 */
         .timeline {
@@ -359,7 +432,7 @@
 
         /* 提示框 */
         .tip {
-            background: #fff3cd;
+            background: rgba(255, 193, 7, 0.3);
             border-left: 4px solid #ffc107;
             padding: 12px;
             margin: 12px 0;
@@ -376,7 +449,7 @@
         }
 
         .warning {
-            background: #f8d7da;
+            background: rgba(244, 67, 54, 0.25);
             border-left: 4px solid #dc3545;
             color: #721c24;
         }
@@ -574,7 +647,7 @@
             <div style="background: linear-gradient(to bottom, #f8f9fa, #e9ecef); padding: 20px; border-radius: 12px; margin: 16px 0;">
                 <div style="position: relative;">
                     <!-- 第1段：北京→河内 -->
-                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #e74c3c;">
+                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; border-left: 4px solid #e74c3c;">
                         <div style="flex: 1;">
                             <div style="font-weight: bold; font-size: 15px;">✈️ 北京 PKX → 河内 HAN</div>
                             <div style="font-size: 13px; color: #666; margin-top: 4px;">VJ7713 越捷 | 9/28 01:20→03:55 | 2h35m</div>
@@ -583,13 +656,13 @@
                     </div>
 
                     <!-- 中转1：河内 -->
-                    <div style="margin: 8px 0 16px 40px; padding: 10px; background: #fff3cd; border-radius: 6px; border-left: 3px solid #ffc107;">
+                    <div style="margin: 8px 0 16px 40px; padding: 10px; background: rgba(255, 193, 7, 0.3); border-radius: 6px; border-left: 3px solid #ffc107;">
                         <div style="font-weight: bold; color: #856404;">🔄 河内中转 17小时</div>
                         <div style="font-size: 13px; color: #856404; margin-top: 4px;">可入境市区 | 建议开钟点房补觉4小时</div>
                     </div>
 
                     <!-- 第2段：河内→吉隆坡 -->
-                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #3498db;">
+                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; border-left: 4px solid #3498db;">
                         <div style="flex: 1;">
                             <div style="font-weight: bold; font-size: 15px;">✈️ 河内 HAN → 吉隆坡 KUL</div>
                             <div style="font-size: 13px; color: #666; margin-top: 4px;">AK519 亚航 | 9/28 21:00→9/29 01:20 | 3h20m</div>
@@ -598,13 +671,13 @@
                     </div>
 
                     <!-- 停留1：吉隆坡 -->
-                    <div style="margin: 8px 0 16px 40px; padding: 10px; background: #e3f2fd; border-radius: 6px; border-left: 3px solid #2196f3;">
+                    <div style="margin: 8px 0 16px 40px; padding: 10px; background: rgba(33, 150, 243, 0.25); border-radius: 6px; border-left: 3px solid #2196f3;">
                         <div style="font-weight: bold; color: #1976d2;">📍 吉隆坡停留 17小时</div>
                         <div style="font-size: 13px; color: #1976d2; margin-top: 4px;">9/29 01:20抵达 - 18:35离开 | The Platinum 2公寓</div>
                     </div>
 
                     <!-- 第3段：吉隆坡→巴厘岛 -->
-                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #27ae60;">
+                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; border-left: 4px solid #27ae60;">
                         <div style="flex: 1;">
                             <div style="font-weight: bold; font-size: 15px;">✈️ 吉隆坡 KUL → 巴厘岛 DPS</div>
                             <div style="font-size: 13px; color: #666; margin-top: 4px;">AK374 亚航 | 9/29 18:35→21:45 | 3h10m</div>
@@ -624,7 +697,7 @@
                     </div>
 
                     <!-- 第4段：巴厘岛→泗水 -->
-                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #f39c12;">
+                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; border-left: 4px solid #f39c12;">
                         <div style="flex: 1;">
                             <div style="font-weight: bold; font-size: 15px;">✈️ 巴厘岛 DPS → 泗水 SUB</div>
                             <div style="font-size: 13px; color: #666; margin-top: 4px;">建议 16:10 QG669 或 16:55 GA349 | 约1h10m</div>
@@ -643,7 +716,7 @@
                     </div>
 
                     <!-- 第5段：泗水→雅加达 -->
-                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #9b59b6;">
+                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; border-left: 4px solid #9b59b6;">
                         <div style="flex: 1;">
                             <div style="font-weight: bold; font-size: 15px;">✈️ 泗水 SUB → 雅加达 CGK</div>
                             <div style="font-size: 13px; color: #666; margin-top: 4px;">建议 18:10 ID7579 或 19:15 ID6575 | 约1h30m</div>
@@ -652,7 +725,7 @@
                     </div>
 
                     <!-- 停留4：雅加达 -->
-                    <div style="margin: 8px 0 16px 40px; padding: 12px; background: #f3e5f5; border-radius: 6px; border-left: 3px solid #9c27b0;">
+                    <div style="margin: 8px 0 16px 40px; padding: 12px; background: rgba(156, 39, 176, 0.25); border-radius: 6px; border-left: 3px solid #9c27b0;">
                         <div style="font-weight: bold; color: #6a1b9a; font-size: 16px;">🏙️ 雅加达停留 2天1晚</div>
                         <div style="font-size: 13px; color: #6a1b9a; margin-top: 6px;">
                             10/5 19:40抵达 - 10/7 13:10离开<br>
@@ -662,7 +735,7 @@
                     </div>
 
                     <!-- 第6段：雅加达→文莱 -->
-                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #e67e22;">
+                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; border-left: 4px solid #e67e22;">
                         <div style="flex: 1;">
                             <div style="font-weight: bold; font-size: 15px;">✈️ 雅加达 CGK → 文莱 BWN</div>
                             <div style="font-size: 13px; color: #666; margin-top: 4px;">BI736 文莱皇家 | 10/7 13:10→16:40 | 2h30m</div>
@@ -671,7 +744,7 @@
                     </div>
 
                     <!-- 停留5：文莱 -->
-                    <div style="margin: 8px 0 16px 40px; padding: 12px; background: #ffe0b2; border-radius: 6px; border-left: 3px solid #ff9800;">
+                    <div style="margin: 8px 0 16px 40px; padding: 12px; background: rgba(255, 152, 0, 0.3); border-radius: 6px; border-left: 3px solid #ff9800;">
                         <div style="font-weight: bold; color: #e65100; font-size: 16px;">🕌 文莱停留 18小时</div>
                         <div style="font-size: 13px; color: #e65100; margin-top: 6px;">
                             10/7 16:40抵达 - 10/8 10:25离开<br>
@@ -681,7 +754,7 @@
                     </div>
 
                     <!-- 第7段：文莱→香港 -->
-                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #00bcd4;">
+                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; border-left: 4px solid #00bcd4;">
                         <div style="flex: 1;">
                             <div style="font-weight: bold; font-size: 15px;">✈️ 文莱 BWN → 香港 HKG</div>
                             <div style="font-size: 13px; color: #666; margin-top: 4px;">BI635 文莱皇家 | 10/8 10:25→13:35 | 3h10m</div>
@@ -690,7 +763,7 @@
                     </div>
 
                     <!-- 停留6：香港 -->
-                    <div style="margin: 8px 0 16px 40px; padding: 12px; background: #e0f2f1; border-radius: 6px; border-left: 3px solid #009688;">
+                    <div style="margin: 8px 0 16px 40px; padding: 12px; background: rgba(0, 150, 136, 0.25); border-radius: 6px; border-left: 3px solid #009688;">
                         <div style="font-weight: bold; color: #00695c; font-size: 16px;">🇭🇰 香港停留 2天1晚</div>
                         <div style="font-size: 13px; color: #00695c; margin-top: 6px;">
                             10/8 13:35抵达 - 10/10 22:15离开<br>
@@ -700,7 +773,7 @@
                     </div>
 
                     <!-- 第8段：香港→北京 -->
-                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #e74c3c;">
+                    <div style="display: flex; align-items: center; margin: 16px 0; padding: 12px; background: rgba(255, 255, 255, 0.2); border-radius: 8px; border-left: 4px solid #e74c3c;">
                         <div style="flex: 1;">
                             <div style="font-weight: bold; font-size: 15px;">✈️ 香港 HKG → 北京 PKX</div>
                             <div style="font-size: 13px; color: #666; margin-top: 4px;">UO234 香港快运 | 10/10 22:15→10/11 01:35 | 3h20m</div>
@@ -718,7 +791,7 @@
 
             <!-- 统计信息 -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 20px;">
-                <div style="text-align: center; padding: 12px; background: #e3f2fd; border-radius: 8px;">
+                <div style="text-align: center; padding: 12px; background: rgba(33, 150, 243, 0.25); border-radius: 8px;">
                     <div style="font-size: 24px; font-weight: bold; color: #1976d2;">8</div>
                     <div style="font-size: 13px; color: #666;">航班总数</div>
                 </div>
@@ -730,7 +803,7 @@
                     <div style="font-size: 24px; font-weight: bold; color: #e65100;">14</div>
                     <div style="font-size: 13px; color: #666;">天数</div>
                 </div>
-                <div style="text-align: center; padding: 12px; background: #f3e5f5; border-radius: 8px;">
+                <div style="text-align: center; padding: 12px; background: rgba(156, 39, 176, 0.25); border-radius: 8px;">
                     <div style="font-size: 24px; font-weight: bold; color: #6a1b9a;">13</div>
                     <div style="font-size: 13px; color: #666;">住宿晚数</div>
                 </div>
@@ -1739,6 +1812,91 @@
             </div>
 
             <h3 style="margin-top: 24px;">📋 行前清单</h3>
+
+            <h3 style="color: #3498db;">✈️ 在线值机时间表</h3>
+            <div style="background: rgba(33, 150, 243, 0.25); padding: 12px; border-radius: 8px; margin-bottom: 16px;">
+                <div style="font-size: 13px; color: #1976d2; margin-bottom: 8px;">⚠️ 廉航必须提前值机，避免现场柜台收费！</div>
+            </div>
+
+            <div class="booking-item pending" style="margin-bottom: 12px;">
+                <div class="booking-header">
+                    <div class="booking-title">🟡 AK519 河内→吉隆坡</div>
+                    <div class="booking-status pending">待值机</div>
+                </div>
+                <div class="booking-detail">📅 值机开放时间：9月14日 21:00 - 9月28日 20:00（马来西亚时间 GMT+8）</div>
+                <div class="booking-detail">⏰ 换算为北京时间：9月14日 21:00 - 9月28日 20:00</div>
+                <div class="booking-detail">👤 姓名：XIA/CHENYANG | 预订编码：QFCJ2T</div>
+                <div class="booking-detail" style="color: #f39c12; font-weight: bold;">💡 起飞前14天（9月14日晚9点）开放值机</div>
+                <div style="background: rgba(255, 152, 0, 0.3); padding: 10px; border-radius: 6px; margin-top: 8px; font-size: 13px;">
+                    <strong>🌐 值机方式：</strong><br>
+                    官网：<a href="https://www.airasia.com" target="_blank" style="color: #1976d2;">www.airasia.com</a> → Manage My Booking → QFCJ2T<br>
+                    App：下载AirAsia App → Check-in<br>
+                    机场：可使用Kiosk自助值机（免费）
+                </div>
+            </div>
+
+            <div class="booking-item pending" style="margin-bottom: 12px;">
+                <div class="booking-header">
+                    <div class="booking-title">🟡 VJ7713 北京→河内</div>
+                    <div class="booking-status pending">待值机</div>
+                </div>
+                <div class="booking-detail">📅 值机开放时间：9月27日 01:20 - 9月27日 23:20（北京时间）</div>
+                <div class="booking-detail">⏰ 起飞时间：9月28日 01:20</div>
+                <div class="booking-detail">👤 姓名：XIA/CHENYANG | 票号/编码：B8SGD6</div>
+                <div class="booking-detail" style="color: #f39c12; font-weight: bold;">💡 建议9月27日凌晨1点后立即值机</div>
+                <div style="background: rgba(255, 152, 0, 0.3); padding: 10px; border-radius: 6px; margin-top: 8px; font-size: 13px;">
+                    <strong>🌐 值机方式：</strong><br>
+                    官网：<a href="https://www.vietjetair.com" target="_blank" style="color: #1976d2;">www.vietjetair.com</a> → Manage Booking → B8SGD6<br>
+                    App：下载VietJet Air App → Check-in<br>
+                    提示：值机后记得在柜台贴手提行李标签
+                </div>
+            </div>
+
+            <div class="booking-item pending" style="margin-bottom: 12px;">
+                <div class="booking-header">
+                    <div class="booking-title">🟡 AK374 吉隆坡→巴厘岛</div>
+                    <div class="booking-status pending">待值机</div>
+                </div>
+                <div class="booking-detail">📅 值机开放时间：9月15日 09:40 - 9月29日 08:40（马来西亚时间 GMT+8）</div>
+                <div class="booking-detail">⏰ 起飞时间：9月29日 09:40</div>
+                <div class="booking-detail">👤 姓名：XIA/CHENYANG | 预订编码：QFCJ2T</div>
+                <div class="booking-detail" style="color: #f39c12; font-weight: bold;">💡 起飞前14天（9月15日上午9:40）开放值机</div>
+                <div class="booking-detail">⚠️ 或使用去哪儿免费代办值机服务（起飞前3小时通知）</div>
+                <div style="background: rgba(255, 152, 0, 0.3); padding: 10px; border-radius: 6px; margin-top: 8px; font-size: 13px;">
+                    <strong>🌐 值机方式：</strong><br>
+                    官网：<a href="https://www.airasia.com" target="_blank" style="color: #1976d2;">www.airasia.com</a> → Manage My Booking → QFCJ2T<br>
+                    App：下载AirAsia App → Check-in<br>
+                    机场：可使用Kiosk自助值机（免费）
+                </div>
+            </div>
+
+            <div class="booking-item pending" style="margin-bottom: 12px;">
+                <div class="booking-header">
+                    <div class="booking-title">🟡 UO234 香港→北京</div>
+                    <div class="booking-status pending">待值机</div>
+                </div>
+                <div class="booking-detail">📅 值机开放时间：10月8日 22:15 - 10月10日 20:50（香港时间）</div>
+                <div class="booking-detail">⏰ 起飞时间：10月10日 22:15（香港时间）</div>
+                <div class="booking-detail">👤 姓名：XIA/CHENYANG | 票号/编码：XEUBHX</div>
+                <div class="booking-detail" style="color: #f39c12; font-weight: bold;">💡 起飞前48小时（10月8日晚10:15）开放值机</div>
+                <div style="background: rgba(255, 152, 0, 0.3); padding: 10px; border-radius: 6px; margin-top: 8px; font-size: 13px;">
+                    <strong>🌐 值机方式：</strong><br>
+                    官网：<a href="https://www.hkexpress.com" target="_blank" style="color: #1976d2;">www.hkexpress.com</a> → Online Check-in → XEUBHX<br>
+                    App：下载HK Express App → Check-in<br>
+                    值机截止：起飞前75分钟（10月10日 21:00）
+                </div>
+            </div>
+
+            <div style="background: rgba(255, 193, 7, 0.3); padding: 12px; border-radius: 8px; margin-top: 16px; margin-bottom: 16px;">
+                <div style="font-size: 13px; color: #856404;">
+                    <strong>📝 值机注意事项：</strong><br>
+                    • 保存电子登机牌截图到手机相册（防止网络问题）<br>
+                    • 廉航严格检查随身行李重量，提前称重<br>
+                    • 部分机场需要打印纸质登机牌（建议提前打印备用）<br>
+                    • 廉航行李额：严格按购买重量，超重现场贵
+                </div>
+            </div>
+
             <h3 style="color: #e74c3c;">🔴 立即办理（本周内）</h3>
             <ul class="todo-list">
                 <li class="todo-item urgent">□ 越南电子签（evisa.gov.vn，$25）</li>
@@ -1958,10 +2116,181 @@
                 <div class="booking-detail">📅 10月8日 - 10月10日退房</div>
                 <div class="booking-detail">🛏️ 2晚 · HK$1,900/晚 · 约¥3,253（2人分摊）</div>
             </div>
+
+            </div>
         </div>
 
+        <!-- 电子凭证库 -->
+        <div class="collapsible-section" style="margin-top: 20px;">
+            <div class="collapsible-header" onclick="toggleSection('documents-content')">
+                <h2>📎 电子凭证库</h2>
+                <span class="toggle-icon" id="documents-content-icon">▼</span>
+            </div>
+            <div class="collapsible-content" id="documents-content">
+
+            <h3 style="color: #3498db;">✈️ 机票行程单</h3>
+
+            <div class="booking-item confirmed" style="margin-bottom: 16px;">
+                <div class="booking-header">
+                    <div class="booking-title">VJ7713 北京→河内</div>
+                    <div class="booking-status confirmed">已确认</div>
+                </div>
+                <div class="booking-detail">📅 2026年9月28日 01:20 - 03:55</div>
+                <div class="booking-detail">📋 预订编码：B8SGD6</div>
+                <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <a href="https://drive.google.com/file/d/1fLHnxaUbJeHgflsLBnl4hU6LupK4OyfL/view?usp=drive_web" target="_blank" style="background: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📄 查看行程单</a>
+                    <a href="https://drive.google.com/file/d/1lV1t3UKKvW4_tE7MUjetQnxgvjO_2X42/view?usp=drive_web" target="_blank" style="background: #2ecc71; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📋 查看出行单</a>
+                </div>
+            </div>
+
+            <div class="booking-item confirmed" style="margin-bottom: 16px;">
+                <div class="booking-header">
+                    <div class="booking-title">AK519/AK374 河内→吉隆坡→巴厘岛</div>
+                    <div class="booking-status confirmed">已确认</div>
+                </div>
+                <div class="booking-detail">📅 9月28日 21:00 / 9月29日 09:40</div>
+                <div class="booking-detail">📋 预订编码：QFCJ2T</div>
+                <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <a href="https://drive.google.com/file/d/1C17MLXM7FT3vYgMDKNSrXRIBUOEvzo88/view?usp=drive_web" target="_blank" style="background: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📄 查看行程单</a>
+                    <a href="https://drive.google.com/file/d/18xygQHf_bQuTkj_5_PqelVNQY3A3fJTc/view?usp=drive_web" target="_blank" style="background: #2ecc71; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📋 查看出行单</a>
+                </div>
+            </div>
+
+            <div class="booking-item confirmed" style="margin-bottom: 16px;">
+                <div class="booking-header">
+                    <div class="booking-title">BI736/BI635 雅加达→文莱→香港</div>
+                    <div class="booking-status confirmed">已确认</div>
+                </div>
+                <div class="booking-detail">📅 10月7日 13:15 / 10月8日 10:25</div>
+                <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <a href="https://drive.google.com/file/d/1OQvy9jaiey6PN2G6Kvy_jIz0vL2JLpWL/view?usp=drive_web" target="_blank" style="background: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📄 查看行程单</a>
+                </div>
+            </div>
+
+            <div class="booking-item confirmed" style="margin-bottom: 16px;">
+                <div class="booking-header">
+                    <div class="booking-title">UO234 香港→北京</div>
+                    <div class="booking-status confirmed">已确认</div>
+                </div>
+                <div class="booking-detail">📅 10月10日 22:15 - 10月11日 01:35</div>
+                <div class="booking-detail">📋 预订编码：XEUBHX</div>
+                <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                    <a href="https://drive.google.com/file/d/1WE0yRa7PhQfihQi58eNW8z_5shxOp0Zs/view?usp=drive_web" target="_blank" style="background: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📄 查看行程单</a>
+                    <a href="https://drive.google.com/file/d/15x1MEdlWUxMTSDYDl91P9fSFBoTViTUp/view?usp=drive_web" target="_blank" style="background: #2ecc71; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📋 查看出行单</a>
+                </div>
+            </div>
+
+            <h3 style="color: #e67e22; margin-top: 32px;">🏨 酒店确认单</h3>
+
+            <div class="booking-item confirmed" style="margin-bottom: 16px;">
+                <div class="booking-header">
+                    <div class="booking-title">豪瑪HOLMA 吉隆坡市中心</div>
+                    <div class="booking-status confirmed">已确认</div>
+                </div>
+                <div class="booking-detail">📅 9月28日 - 9月29日（1晚）</div>
+                <div style="margin-top: 10px;">
+                    <a href="https://drive.google.com/file/d/1gv0uLEIapIHeZQ-Ad1mRNJYw4nB2m0qQ/view?usp=drive_web" target="_blank" style="background: #e67e22; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px;">📄 查看确认函</a>
+                </div>
+            </div>
+
+            <div class="booking-item confirmed" style="margin-bottom: 16px;">
+                <div class="booking-header">
+                    <div class="booking-title">巴厘岛机场希尔顿花园酒店</div>
+                    <div class="booking-status confirmed">已确认</div>
+                </div>
+                <div class="booking-detail">📅 9月29日入住（待确定天数）</div>
+                <div style="margin-top: 10px;">
+                    <a href="https://drive.google.com/file/d/1VXBz4IbdYvPTBUmcDenOPPsbbfg7A_va/view?usp=drive_web" target="_blank" style="background: #e67e22; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px;">📄 查看确认函</a>
+                </div>
+            </div>
+
+            <div class="booking-item confirmed" style="margin-bottom: 16px;">
+                <div class="booking-header">
+                    <div class="booking-title">泗水JW万豪酒店</div>
+                    <div class="booking-status confirmed">已确认</div>
+                </div>
+                <div class="booking-detail">📅 入住日期待定</div>
+                <div style="margin-top: 10px;">
+                    <a href="https://drive.google.com/file/d/152diwbgtVzNHd6chF1pAsGFQV3lr7O5n/view?usp=drive_web" target="_blank" style="background: #e67e22; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px;">📄 查看确认函</a>
+                </div>
+            </div>
+
+            <h3 style="color: #9b59b6; margin-top: 32px;">📋 签证文件</h3>
+
+            <div class="booking-item confirmed" style="margin-bottom: 16px; border-left: 4px solid #9b59b6;">
+                <div class="booking-header">
+                    <div class="booking-title">印度尼西亚电子签证 (eVOA)</div>
+                    <div class="booking-status confirmed" style="background: #9b59b6;">已签发</div>
+                </div>
+                <div class="booking-detail">✅ 有效期：入境后30天</div>
+                <div class="booking-detail">⚠️ 入境时需出示此签证</div>
+                <div style="margin-top: 10px;">
+                    <a href="https://drive.google.com/file/d/1f9dQUHwBrC_2jnjMCOOsLQGupM3NJr-y/view?usp=drive_web" target="_blank" style="background: #9b59b6; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px;">📄 查看电子签证</a>
+                </div>
+            </div>
+
+            <div style="background: rgba(255, 193, 7, 0.3); padding: 12px; border-radius: 8px; margin-top: 16px;">
+                <div style="font-size: 13px; color: #856404;">
+                    <strong>💡 使用提示：</strong><br>
+                    • 建议将所有PDF下载到手机，离线也能查看<br>
+                    • 打印纸质版备份（特别是签证和首晚酒店确认函）<br>
+                    • 入境时海关可能要求出示返程机票和住宿证明<br>
+                    • 所有文件建议同时保存电子版和纸质版
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+    <!-- PDF预览弹窗 -->
+    <div id="pdfModal" class="pdf-modal">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <div class="pdf-modal-title" id="pdfTitle">文档预览</div>
+                <button class="pdf-close" onclick="closePdfModal()">&times;</button>
+            </div>
+            <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+        </div>
+    </div>
 
     <script>
+        // PDF预览功能
+        function openPdfModal(pdfUrl, title) {
+            const modal = document.getElementById('pdfModal');
+            const viewer = document.getElementById('pdfViewer');
+            const titleElement = document.getElementById('pdfTitle');
+
+            // 使用PDF.js CDN预览
+            viewer.src = 'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + encodeURIComponent(pdfUrl);
+            titleElement.textContent = title;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePdfModal() {
+            const modal = document.getElementById('pdfModal');
+            const viewer = document.getElementById('pdfViewer');
+
+            modal.classList.remove('active');
+            viewer.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // 点击弹窗外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('pdfModal');
+            if (event.target === modal) {
+                closePdfModal();
+            }
+        }
+
+        // ESC键关闭弹窗
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePdfModal();
+            }
+        });
+
         // 倒计时功能 - 出发前追踪待办事项，出发后追踪航班
         function updateCountdown() {
             const now = new Date().getTime();
@@ -2060,5 +2389,6 @@
             content.classList.toggle('active');
         }
     </script>
+    </div>
 </body>
 </html>
