@@ -33,10 +33,12 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
-            background: var(--bg-color);
+            background: url('kelingking-hd.jpg') center center no-repeat fixed;
+            background-size: cover;
             color: var(--text-color);
             line-height: 1.6;
             padding-bottom: 60px;
+            min-height: 100vh;
         }
 
         .container {
@@ -47,12 +49,20 @@
 
         /* 倒计时卡片 */
         .countdown-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80') center/cover;
             color: white;
             border-radius: 16px;
             padding: 24px;
             margin-bottom: 20px;
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-card > * {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
 
         .countdown-card h2 {
@@ -557,6 +567,7 @@
                 <span class="collapsible-icon" id="route-overview-icon">▼</span>
             </div>
             <div class="collapsible-content" id="route-overview">
+
             <p style="margin-bottom: 16px;">2026年9月27日深夜 - 10月11日凌晨 · 14天13晚 · 8段航班</p>
 
             <!-- 航线流程图 -->
@@ -724,538 +735,6 @@
                     <div style="font-size: 13px; color: #666;">住宿晚数</div>
                 </div>
             </div>
-            </div>
-        </div>
-
-        <!-- 签证入境卡总览 -->
-        <div class="collapsible-section">
-            <div class="collapsible-header" onclick="toggleSection('visa-overview')">
-                <h2>🛂 签证与入境卡攻略</h2>
-                <span class="collapsible-icon" id="visa-overview-icon">▼</span>
-            </div>
-            <div class="collapsible-content" id="visa-overview">
-            <p style="margin-bottom: 16px;">以下是你需要办理的所有签证和入境卡，按紧急程度排序：</p>
-
-            <div class="visa-grid">
-                <div class="visa-card urgent">
-                    <h4>🇻🇳 越南电子签证 <span class="visa-badge urgent">立即办理</span></h4>
-                    <div class="visa-info">💰 费用: $25 (约¥180)</div>
-                    <div class="visa-info">⏱ 处理: 3-5工作日</div>
-                    <div class="visa-info">📅 用于: 9月28日河内中转</div>
-                    <a href="https://evisa.xuatnhapcanh.gov.vn" class="btn" target="_blank">立即申请</a>
-                </div>
-
-                <div class="visa-card warning">
-                    <h4>🇮🇩 印尼eVOA <span class="visa-badge warning">9月15日前</span></h4>
-                    <div class="visa-info">💰 费用: Rp 500,000 (约¥192)</div>
-                    <div class="visa-info">⏱ 处理: 即时-3天</div>
-                    <div class="visa-info">📅 用于: 9月29日入境巴厘岛</div>
-                    <a href="https://evisa.imigrasi.go.id" class="btn" target="_blank">立即申请</a>
-                </div>
-
-                <div class="visa-card warning">
-                    <h4>🇮🇩 巴厘岛旅游税 <span class="visa-badge warning">出发前</span></h4>
-                    <div class="visa-info">💰 费用: Rp 150,000 (约¥58)</div>
-                    <div class="visa-info">⏱ 处理: 即时</div>
-                    <div class="visa-info">📅 入境前缴纳</div>
-                    <a href="https://lovebali.baliprov.go.id" class="btn" target="_blank">立即缴纳</a>
-                </div>
-
-                <div class="visa-card done">
-                    <h4>🇲🇾 马来西亚MDAC <span class="visa-badge done">9月26日</span></h4>
-                    <div class="visa-info">💰 费用: 免费</div>
-                    <div class="visa-info">⏱ 处理: 即时</div>
-                    <div class="visa-info">📅 抵马前3天内</div>
-                </div>
-
-                <div class="visa-card done">
-                    <h4>🇮🇩 印尼E-CD <span class="visa-badge done">9月26日</span></h4>
-                    <div class="visa-info">💰 费用: 免费</div>
-                    <div class="visa-info">⏱ 处理: 即时</div>
-                    <div class="visa-info">📅 入境前3天内</div>
-                </div>
-
-                <div class="visa-card done">
-                    <h4>🇧🇳 文莱入境卡 <span class="visa-badge done">10月5日</span></h4>
-                    <div class="visa-info">💰 费用: 免费</div>
-                    <div class="visa-info">⏱ 处理: 即时</div>
-                    <div class="visa-info">📅 抵文前48小时</div>
-                </div>
-            </div>
-
-            <h3>📖 详细办理步骤（点击展开）</h3>
-
-            <!-- 越南签证 -->
-            <div class="expandable" onclick="toggleVisa('vietnam')">
-                <div class="expandable-header">
-                    <span>🔴 越南电子签证（最紧急！）</span>
-                    <span>▼</span>
-                </div>
-                <div class="expandable-content" id="vietnam">
-                    <div class="warning" style="margin-bottom: 12px;">
-                        <strong>⚠️ 为什么最紧急？</strong><br>
-                        • 9月28日凌晨就要过境越南<br>
-                        • 处理时间可能需要3-5个工作日<br>
-                        • 距出发只有14天
-                    </div>
-
-                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
-                    <ol class="step-list">
-                        <li>访问官方网站：<a href="https://evisa.xuatnhapcanh.gov.vn" target="_blank">evisa.xuatnhapcanh.gov.vn</a><br>
-                        <span style="color: #e74c3c; font-size: 13px;">⚠️ 认准 .gov.vn 结尾，其他都是代办网站会加价</span></li>
-                        <li>填写申请表：<br>
-                        • 签证类型: Tourist (DL)<br>
-                        • 停留时间: 30 days<br>
-                        • 入境口岸: Noi Bai International Airport<br>
-                        • 入境/出境日期: 2026-09-28</li>
-                        <li>上传材料：护照首页扫描件 + 2寸白底照片</li>
-                        <li>支付费用：$25（支持Visa/MasterCard/银联）</li>
-                        <li>等待审批：3-5个工作日，邮箱收到PDF批准函</li>
-                        <li>打印签证：打印2份随身携带</li>
-                    </ol>
-
-                    <div class="warning" style="margin-top: 16px;">
-                        <strong>⚠️ E开头护照特别注意！</strong><br>
-                        如果护照号以E开头，到达河内需要：<br>
-                        • 前往 "Visa on Arrival" 柜台换取另纸签证<br>
-                        • <strong>必须携带2张2寸白底照片</strong><br>
-                        • 预留30-60分钟办理时间
-                    </div>
-
-                    <div class="tip" style="margin-top: 12px;">
-                        💡 <strong>中转期间可以做什么？</strong><br>
-                        可以入境市区，建议开钟点房补觉4小时（约$15-25）<br>
-                        推荐区域：还剑湖周边、老城区
-                    </div>
-                </div>
-            </div>
-
-            <!-- 印尼eVOA -->
-            <div class="expandable" onclick="toggleVisa('indonesia-evoa')">
-                <div class="expandable-header">
-                    <span>🟡 印尼eVOA电子落地签</span>
-                    <span>▼</span>
-                </div>
-                <div class="expandable-content" id="indonesia-evoa">
-                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>出发前1-2周（9月15日左右）</p>
-
-                    <div class="tip" style="margin-bottom: 12px;">
-                        💡 <strong>为什么要提前办？</strong><br>
-                        • 提前办可以走Autogate自助通道<br>
-                        • 现场办需要排队（可能1-2小时）<br>
-                        • 费用一样，提前办更省时
-                    </div>
-
-                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
-                    <ol class="step-list">
-                        <li>访问官网（以下任一网址，推荐第一个）：<br>
-                        • <a href="https://evisa.imigrasi.go.id" target="_blank">evisa.imigrasi.go.id</a> ✅ 推荐<br>
-                        • <a href="https://molina.imigrasi.go.id" target="_blank">molina.imigrasi.go.id</a> 备用<br>
-                        • <a href="https://visa-online.imigrasi.go.id" target="_blank">visa-online.imigrasi.go.id</a> 备用<br>
-                        <span style="color: #27ae60; font-size: 13px;">⚠️ 认准 .imigrasi.go.id 官方域名，其他都是代办</span></li>
-                        <li>注册账号并登录</li>
-                        <li>填写申请表：<br>
-                        • Visa Type: <strong>B1</strong>（旅游签证/Tourist Visa）<br>
-                        • Port of Entry: Ngurah Rai (Bali)<br>
-                        • Entry Date: 2026-09-29<br>
-                        • Stay Period: 30 days<br>
-                        • Accommodation: <strong>Hilton Garden Inn Bali Ngurah Rai Airport, Tuban, Bali, 80361</strong></li>
-                        <li>上传材料：护照首页 + 证件照 + 返程机票订单</li>
-                        <li>支付费用：Rp 500,000 签证费 + Rp 19,500 手续费 = <strong>Rp 519,500（约¥238）</strong></li>
-                        <li>收到批准函：邮箱收到PDF，打印2份</li>
-                        <li>入境时：走"eVOA"通道，出示护照和批准函</li>
-                    </ol>
-
-                    <div class="tip">
-                        💡 <strong>证件照提示</strong><br>
-                        实测：蓝底证件照+戴眼镜可以通过审核（不强制要求白底或摘眼镜）
-                    </div>
-                </div>
-            </div>
-
-            <!-- 巴厘岛旅游税 -->
-            <div class="expandable" onclick="toggleVisa('bali-tax')">
-                <div class="expandable-header">
-                    <span>🟡 巴厘岛旅游税</span>
-                    <span>▼</span>
-                </div>
-                <div class="expandable-content" id="bali-tax">
-                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>入境前任意时间</p>
-
-                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
-                    <ol class="step-list">
-                        <li>访问官网：<a href="https://lovebali.baliprov.go.id" target="_blank">lovebali.baliprov.go.id</a></li>
-                        <li>填写信息：姓名、护照号、入境日期(2026-09-29)、停留天数(4天)</li>
-                        <li>支付：Rp 150,000（约¥58），支持信用卡/支付宝</li>
-                        <li>保存凭证：收到电子收据PDF，截图保存到手机</li>
-                    </ol>
-
-                    <div class="tip">
-                        💡 同行3人各自办理，或一人代办（需所有人护照信息）
-                    </div>
-                </div>
-            </div>
-
-            <!-- 马来西亚MDAC -->
-            <div class="expandable" onclick="toggleVisa('malaysia')">
-                <div class="expandable-header">
-                    <span>🟢 马来西亚MDAC电子入境卡</span>
-                    <span>▼</span>
-                </div>
-                <div class="expandable-content" id="malaysia">
-                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>抵达马来西亚前3天内（9月26-29日）</p>
-
-                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
-                    <ol class="step-list">
-                        <li>访问官网：<a href="https://imigresen.gov.my/portal/mdac" target="_blank">imigresen.gov.my/portal/mdac</a></li>
-                        <li>填写信息：<br>
-                        • 航班号: AK519<br>
-                        • 抵达日期: 2026-09-29 01:20<br>
-                        • 酒店地址: <strong>The Platinum 2, Jalan Berangan, Bukit Bintang, Kuala Lumpur, 50200</strong></li>
-                        <li>提交：无需上传文件，免费，立即生成</li>
-                        <li>保存：截图保存二维码</li>
-                        <li>入境时：出示护照和MDAC二维码</li>
-                    </ol>
-
-                    <div class="tip">
-                        💡 电子护照可走e-Gate自助通道
-                    </div>
-                </div>
-            </div>
-
-            <!-- 印尼E-CD -->
-            <div class="expandable" onclick="toggleVisa('indonesia-ecd')">
-                <div class="expandable-header">
-                    <span>🟢 印尼E-CD海关申报</span>
-                    <span>▼</span>
-                </div>
-                <div class="expandable-content" id="indonesia-ecd">
-                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>抵达印尼前3天内（9月26-29日）</p>
-
-                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
-                    <ol class="step-list">
-                        <li>微信搜索 "Indonesia E-CD" 小程序</li>
-                        <li>填写申报：航班信息AK374、携带物品如实申报</li>
-                        <li>生成二维码：截图保存</li>
-                        <li>入境时：出示二维码给海关扫描</li>
-                    </ol>
-
-                    <div class="tip">
-                        💡 <strong>同行3人可以共用一个二维码</strong>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 文莱入境卡 -->
-            <div class="expandable" onclick="toggleVisa('brunei')">
-                <div class="expandable-header">
-                    <span>🟢 文莱E-Arrival Card</span>
-                    <span>▼</span>
-                </div>
-                <div class="expandable-content" id="brunei">
-                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>抵达文莱前48小时（10月5-7日）</p>
-
-                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
-                    <ol class="step-list">
-                        <li>访问官网：<a href="https://www.imm.gov.bn/Forms/e_arrival.aspx" target="_blank">imm.gov.bn/Forms/e_arrival.aspx</a></li>
-                        <li>填写信息：<br>
-                        • 航班号: BI736<br>
-                        • 抵达日期: 2026-10-07 16:40<br>
-                        • 酒店名称: <strong>Radisson Hotel Brunei Darussalam, Bandar Seri Begawan, BS8811</strong>（待订，如已订其他酒店请填写实际酒店名）<br>
-                        • 停留时间: 1晚</li>
-                        <li>提交：免费，立即生成</li>
-                        <li>保存：打印PDF或截图，入境时出示</li>
-                    </ol>
-
-                    <div class="tip">
-                        💡 <strong>文莱酒店待订提醒</strong><br>
-                        确定酒店后记得更新入境卡信息
-                    </div>
-                </div>
-            </div>
-
-            <!-- 香港 -->
-            <div class="expandable" onclick="toggleVisa('hongkong')">
-                <div class="expandable-header">
-                    <span>✅ 香港：无需办理</span>
-                    <span>▼</span>
-                </div>
-                <div class="expandable-content" id="hongkong">
-                    <p style="margin-bottom: 12px;"><strong>政策：</strong>持中国护照过境香港可停留7天免签</p>
-
-                    <p style="margin-bottom: 8px;"><strong>需要出示：</strong></p>
-                    <ul style="margin-left: 20px; margin-bottom: 12px;">
-                        <li>护照</li>
-                        <li>前往第三国的机票（已有）</li>
-                        <li>返回内地的机票（已有）</li>
-                    </ul>
-
-                    <div class="tip">
-                        💡 电子护照可走e-道自助通关，全程无需填表
-                    </div>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 24px;">📅 办理时间线</h3>
-
-            <div style="margin: 16px 0;">
-                <h4 style="color: #e74c3c; margin: 12px 0;">🔴 现在立即办理（9月13日）</h4>
-                <div style="padding: 12px; background: rgba(231, 76, 60, 0.05); border-radius: 8px; margin: 8px 0;">
-                    ✅ <strong>越南电子签证</strong>（最紧急！3-5工作日处理）
-                </div>
-            </div>
-
-            <div style="margin: 16px 0;">
-                <h4 style="color: #f39c12; margin: 12px 0;">🟡 9月15-20日</h4>
-                <div style="padding: 12px; background: rgba(243, 156, 18, 0.05); border-radius: 8px; margin: 8px 0;">
-                    ✅ <strong>印尼eVOA电子落地签</strong><br>
-                    ✅ <strong>巴厘岛旅游税</strong>
-                </div>
-            </div>
-
-            <div style="margin: 16px 0;">
-                <h4 style="color: #27ae60; margin: 12px 0;">🟢 9月26-27日（出发前2天）</h4>
-                <div style="padding: 12px; background: rgba(39, 174, 96, 0.05); border-radius: 8px; margin: 8px 0;">
-                    ✅ <strong>马来西亚MDAC入境卡</strong><br>
-                    ✅ <strong>印尼E-CD海关申报</strong>
-                </div>
-            </div>
-
-            <div style="margin: 16px 0;">
-                <h4 style="color: #3498db; margin: 12px 0;">📅 10月5-6日（到文莱前2天）</h4>
-                <div style="padding: 12px; background: rgba(52, 152, 219, 0.05); border-radius: 8px; margin: 8px 0;">
-                    ✅ <strong>文莱E-Arrival Card</strong>
-                </div>
-            </div>
-
-            <h3 style="margin-top: 24px;">📝 重要提醒</h3>
-
-            <div style="margin: 16px 0;">
-                <h4>必须打印的文件</h4>
-                <ul style="margin-left: 20px; line-height: 2;">
-                    <li>✅ 越南电子签证（2份）</li>
-                    <li>✅ 印尼eVOA批准函（2份）</li>
-                    <li>✅ 所有航班确认单（备用）</li>
-                </ul>
-            </div>
-
-            <div style="margin: 16px 0;">
-                <h4>手机截图保存</h4>
-                <ul style="margin-left: 20px; line-height: 2;">
-                    <li>✅ 巴厘岛旅游税收据</li>
-                    <li>✅ 印尼E-CD二维码</li>
-                    <li>✅ 马来西亚MDAC二维码</li>
-                    <li>✅ 文莱入境卡确认</li>
-                </ul>
-            </div>
-
-            <div class="warning" style="margin: 16px 0;">
-                <strong>⚠️ E开头护照特别准备</strong><br>
-                必须携带2张2寸白底照片（越南换签用）
-            </div>
-            </div>
-        </div>
-
-
-
-        <!-- 已确认订单 -->
-        <div class="collapsible-section">
-            <div class="collapsible-header" onclick="toggleSection('confirmed-bookings')">
-                <h2>✅ 已确认订单</h2>
-                <span class="collapsible-icon" id="confirmed-bookings-icon">▼</span>
-            </div>
-            <div class="collapsible-content" id="confirmed-bookings">
-
-            <h3>航班</h3>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">VJ7713 越捷航空</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">9月28日 01:20 北京大兴 → 03:55 河内</div>
-                <div class="booking-detail">💺 单人票 · ¥1,870（含后续联程）</div>
-                <div class="tip">⏰ 建议9月27日 22:00前值机</div>
-            </div>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">AK519 亚洲航空</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">9月28日 21:00 河内 → 9月29日 01:20 吉隆坡</div>
-            </div>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">AK374 亚洲航空</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">9月29日 18:35 吉隆坡 → 21:45 登巴萨（巴厘岛）</div>
-            </div>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">BI736 文莱皇家航空</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">10月7日 13:10 雅加达 CGK T3 → 16:40 斯里巴加湾</div>
-                <div class="booking-detail">💺 ¥1,199（含后续至香港联程）</div>
-            </div>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">BI635 文莱皇家航空</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">10月8日 10:25 斯里巴加湾 → 13:35 香港</div>
-            </div>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">UO234 香港快运</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">10月10日 22:15 香港 T2 → 10月11日 01:35 北京大兴</div>
-                <div class="booking-detail">💺 ¥643 · 预订号 XEUBHX · 已含手提行李额</div>
-            </div>
-
-            <h3>酒店</h3>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">The Platinum 2 KL by Holma</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">📍 <a href="https://www.google.com/maps/search/?api=1&query=The+Platinum+2+KL+Kuala+Lumpur" class="location-link" target="_blank">吉隆坡双子塔附近</a></div>
-                <div class="booking-detail">📅 9月29日凌晨入住 - 12:00退房</div>
-                <div class="booking-detail">🛏️ 72㎡特大床公寓 · ¥398（2人分摊）</div>
-                <div class="booking-detail">📋 订单号: 454577299289</div>
-            </div>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">巴厘岛机场希尔顿花园酒店</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">📍 <a href="https://www.google.com/maps/search/?api=1&query=Hilton+Garden+Inn+Bali+Ngurah+Rai+Airport" class="location-link" target="_blank">巴厘岛图班（机场区）</a></div>
-                <div class="booking-detail">📅 9月29日晚 - 9月30日 12:00退房</div>
-                <div class="booking-detail">🛏️ 30㎡双床房 · 含9月30日早餐2份 · ¥490（2人分摊）</div>
-                <div class="booking-detail">📋 订单号: 454577399494</div>
-            </div>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">泗水JW万豪酒店</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">📍 <a href="https://www.google.com/maps/search/?api=1&query=JW+Marriott+Hotel+Surabaya" class="location-link" target="_blank">泗水市中心</a></div>
-                <div class="booking-detail">📅 10月3日 14:00入住 - 10月5日退房（可延至16:00）</div>
-                <div class="booking-detail">🛏️ 42㎡双床房 · 2晚 · ¥1,376</div>
-                <div class="booking-detail">💡 10/3晚3人分摊，10/4晚2人分摊</div>
-                <div class="booking-detail">📋 订单号: 454577374866</div>
-            </div>
-
-            <div class="booking-item confirmed">
-                <div class="booking-header">
-                    <div class="booking-title">香港君悦酒店</div>
-                    <div class="booking-status">已确认</div>
-                </div>
-                <div class="booking-detail">📍 <a href="https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Hong+Kong" class="location-link" target="_blank">香港湾仔</a></div>
-                <div class="booking-detail">📅 10月8日 - 10月10日退房</div>
-                <div class="booking-detail">🛏️ 2晚 · HK$1,900/晚 · 约¥3,253（2人分摊）</div>
-            </div>
-        </div>
-
-            </div>
-        </div>
-
-        <!-- 待订事项 -->
-        <div class="collapsible-section">
-            <div class="collapsible-header" onclick="toggleSection('pending-bookings')">
-                <h2>⚠️ 待订事项</h2>
-                <span class="collapsible-icon" id="pending-bookings-icon">▼</span>
-            </div>
-            <div class="collapsible-content" id="pending-bookings">
-
-            <div class="booking-item pending">
-                <div class="booking-header">
-                    <div class="booking-title">🔴 巴厘岛住宿 9/30-10/2</div>
-                    <div class="booking-status pending">待订</div>
-                </div>
-                <div class="booking-detail">建议：乌布villa 2晚（9/30-10/1）+ 水明漾酒店1晚（10/2）</div>
-                <div class="booking-detail">💰 预算：约¥530-895/人（3人分摊）</div>
-                <div class="warning">⚠️ 国庆旺季，需立即预订！</div>
-            </div>
-
-            <div class="booking-item pending">
-                <div class="booking-header">
-                    <div class="booking-title">🔴 巴厘岛→泗水航班 10/3</div>
-                    <div class="booking-status pending">待订</div>
-                </div>
-                <div class="booking-detail">强烈建议：16:10 QG669 或 16:55 GA349</div>
-                <div class="booking-detail">💰 预算：约¥300-500/人</div>
-                <div class="warning">⚠️ 务必订下午班！晚班延误会导致通宵上火山</div>
-            </div>
-
-            <div class="booking-item pending">
-                <div class="booking-header">
-                    <div class="booking-title">泗水→雅加达航班 10/5晚</div>
-                    <div class="booking-status pending">待订</div>
-                </div>
-                <div class="booking-detail">建议：18:10 ID7579 或 19:15 ID6575（落CGK机场）</div>
-                <div class="booking-detail">💰 预算：约¥400-600/人</div>
-                <div class="warning">⚠️ 绝对别订落HLP机场的班次</div>
-            </div>
-
-            <div class="booking-item pending">
-                <div class="booking-header">
-                    <div class="booking-title">雅加达住宿 10/5-10/6</div>
-                    <div class="booking-status pending">待订</div>
-                </div>
-                <div class="booking-detail">建议：机场区万枫酒店（Fairfield by Marriott）</div>
-                <div class="booking-detail">💰 预算：约¥400-800/人（2晚）</div>
-            </div>
-
-            <div class="booking-item pending">
-                <div class="booking-header">
-                    <div class="booking-title">文莱住宿 10/7</div>
-                    <div class="booking-status pending">待订</div>
-                </div>
-                <div class="booking-detail">建议：Radisson Hotel Brunei（市中心，步行可达景点）</div>
-                <div class="booking-detail">💰 预算：约¥500-1,000/人</div>
-            </div>
-
-            <div class="booking-item pending">
-                <div class="booking-header">
-                    <div class="booking-title">布罗莫火山团 10/4</div>
-                    <div class="booking-status pending">待订</div>
-                </div>
-                <div class="booking-detail">凌晨01:00出发看日出，含沙海Jeep+火山口徒步</div>
-                <div class="booking-detail">💰 预算：约¥500-700/人</div>
-                <div class="tip">订前务必确认：航班延误可否免费改期</div>
-            </div>
-
-            <div class="booking-item pending">
-                <div class="booking-header">
-                    <div class="booking-title">佩尼达岛一日游 10/2</div>
-                    <div class="booking-status pending">待订</div>
-                </div>
-                <div class="booking-detail">含往返船票+岛上交通+午餐（Klook/淘宝）</div>
-                <div class="booking-detail">💰 预算：约¥300-400/人</div>
-                <div class="tip">需提前预订，当天很难有位</div>
-            </div>
-
-            <div class="booking-item pending">
-                <div class="booking-header">
-                    <div class="booking-title">滑翔伞体验 10/1</div>
-                    <div class="booking-status pending">待订</div>
-                </div>
-                <div class="booking-detail">Timbis Beach，飞行15-30分钟</div>
-                <div class="booking-detail">💰 预算：约¥250-350/人</div>
-            </div>
-        </div>
-
             </div>
         </div>
 
@@ -1838,19 +1317,428 @@
                     </div>
                 </div>
             </div>
-        </div>
 
             </div>
         </div>
 
-        <!-- 待办清单 -->
+        <!-- 签证入境卡总览 -->
         <div class="collapsible-section">
-            <div class="collapsible-header" onclick="toggleSection('todo-list')">
-                <h2>✅ 待办清单</h2>
-                <span class="collapsible-icon" id="todo-list-icon">▼</span>
+            <div class="collapsible-header" onclick="toggleSection('visa-overview')">
+                <h2>🛂 签证与入境卡攻略</h2>
+                <span class="collapsible-icon" id="visa-overview-icon">▼</span>
             </div>
-            <div class="collapsible-content" id="todo-list">
+            <div class="collapsible-content" id="visa-overview">
+            <p style="margin-bottom: 16px;">以下是你需要办理的所有签证和入境卡，按紧急程度排序：</p>
 
+            <div class="visa-grid">
+                <div class="visa-card urgent">
+                    <h4>🇻🇳 越南电子签证 <span class="visa-badge urgent">立即办理</span></h4>
+                    <div class="visa-info">💰 费用: $25 (约¥180)</div>
+                    <div class="visa-info">⏱ 处理: 3-5工作日</div>
+                    <div class="visa-info">📅 用于: 9月28日河内中转</div>
+                    <a href="https://evisa.xuatnhapcanh.gov.vn" class="btn" target="_blank">立即申请</a>
+                </div>
+
+                <div class="visa-card warning">
+                    <h4>🇮🇩 印尼eVOA <span class="visa-badge warning">9月15日前</span></h4>
+                    <div class="visa-info">💰 费用: Rp 500,000 (约¥192)</div>
+                    <div class="visa-info">⏱ 处理: 即时-3天</div>
+                    <div class="visa-info">📅 用于: 9月29日入境巴厘岛</div>
+                    <a href="https://evisa.imigrasi.go.id" class="btn" target="_blank">立即申请</a>
+                </div>
+
+                <div class="visa-card warning">
+                    <h4>🇮🇩 巴厘岛旅游税 <span class="visa-badge warning">出发前</span></h4>
+                    <div class="visa-info">💰 费用: Rp 150,000 (约¥58)</div>
+                    <div class="visa-info">⏱ 处理: 即时</div>
+                    <div class="visa-info">📅 入境前缴纳</div>
+                    <a href="https://lovebali.baliprov.go.id" class="btn" target="_blank">立即缴纳</a>
+                </div>
+
+                <div class="visa-card done">
+                    <h4>🇲🇾 马来西亚MDAC <span class="visa-badge done">9月26日</span></h4>
+                    <div class="visa-info">💰 费用: 免费</div>
+                    <div class="visa-info">⏱ 处理: 即时</div>
+                    <div class="visa-info">📅 抵马前3天内</div>
+                </div>
+
+                <div class="visa-card done">
+                    <h4>🇮🇩 印尼E-CD <span class="visa-badge done">9月26日</span></h4>
+                    <div class="visa-info">💰 费用: 免费</div>
+                    <div class="visa-info">⏱ 处理: 即时</div>
+                    <div class="visa-info">📅 入境前3天内</div>
+                </div>
+
+                <div class="visa-card done">
+                    <h4>🇧🇳 文莱入境卡 <span class="visa-badge done">10月5日</span></h4>
+                    <div class="visa-info">💰 费用: 免费</div>
+                    <div class="visa-info">⏱ 处理: 即时</div>
+                    <div class="visa-info">📅 抵文前48小时</div>
+                </div>
+            </div>
+
+            <h3>📖 详细办理步骤（点击展开）</h3>
+
+            <!-- 越南签证 -->
+            <div class="expandable" onclick="toggleVisa('vietnam')">
+                <div class="expandable-header">
+                    <span>🔴 越南电子签证（最紧急！）</span>
+                    <span>▼</span>
+                </div>
+                <div class="expandable-content" id="vietnam">
+                    <div class="warning" style="margin-bottom: 12px;">
+                        <strong>⚠️ 为什么最紧急？</strong><br>
+                        • 9月28日凌晨就要过境越南<br>
+                        • 处理时间可能需要3-5个工作日<br>
+                        • 距出发只有14天
+                    </div>
+
+                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
+                    <ol class="step-list">
+                        <li>访问官方网站：<a href="https://evisa.xuatnhapcanh.gov.vn" target="_blank">evisa.xuatnhapcanh.gov.vn</a><br>
+                        <span style="color: #e74c3c; font-size: 13px;">⚠️ 认准 .gov.vn 结尾，其他都是代办网站会加价</span></li>
+                        <li>填写申请表：<br>
+                        • 签证类型: Tourist (DL)<br>
+                        • 停留时间: 30 days<br>
+                        • 入境口岸: Noi Bai International Airport<br>
+                        • 入境/出境日期: 2026-09-28</li>
+                        <li>上传材料：护照首页扫描件 + 2寸白底照片</li>
+                        <li>支付费用：$25（支持Visa/MasterCard/银联）</li>
+                        <li>等待审批：3-5个工作日，邮箱收到PDF批准函</li>
+                        <li>打印签证：打印2份随身携带</li>
+                    </ol>
+
+                    <div class="warning" style="margin-top: 16px;">
+                        <strong>⚠️ E开头护照特别注意！</strong><br>
+                        如果护照号以E开头，到达河内需要：<br>
+                        • 前往 "Visa on Arrival" 柜台换取另纸签证<br>
+                        • <strong>必须携带2张2寸白底照片</strong><br>
+                        • 预留30-60分钟办理时间
+                    </div>
+
+                    <div class="tip" style="margin-top: 12px;">
+                        💡 <strong>中转期间可以做什么？</strong><br>
+                        可以入境市区，建议开钟点房补觉4小时（约$15-25）<br>
+                        推荐区域：还剑湖周边、老城区
+                    </div>
+                </div>
+            </div>
+
+            <!-- 印尼eVOA -->
+            <div class="expandable" onclick="toggleVisa('indonesia-evoa')">
+                <div class="expandable-header">
+                    <span>🟡 印尼eVOA电子落地签</span>
+                    <span>▼</span>
+                </div>
+                <div class="expandable-content" id="indonesia-evoa">
+                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>出发前1-2周（9月15日左右）</p>
+
+                    <div class="tip" style="margin-bottom: 12px;">
+                        💡 <strong>为什么要提前办？</strong><br>
+                        • 提前办可以走Autogate自助通道<br>
+                        • 现场办需要排队（可能1-2小时）<br>
+                        • 费用一样，提前办更省时
+                    </div>
+
+                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
+                    <ol class="step-list">
+                        <li>访问官网（以下任一网址，推荐第一个）：<br>
+                        • <a href="https://evisa.imigrasi.go.id" target="_blank">evisa.imigrasi.go.id</a> ✅ 推荐<br>
+                        • <a href="https://molina.imigrasi.go.id" target="_blank">molina.imigrasi.go.id</a> 备用<br>
+                        • <a href="https://visa-online.imigrasi.go.id" target="_blank">visa-online.imigrasi.go.id</a> 备用<br>
+                        <span style="color: #27ae60; font-size: 13px;">⚠️ 认准 .imigrasi.go.id 官方域名，其他都是代办</span></li>
+                        <li>注册账号并登录</li>
+                        <li>填写申请表：<br>
+                        • Visa Type: <strong>B1</strong>（旅游签证/Tourist Visa）<br>
+                        • Port of Entry: Ngurah Rai (Bali)<br>
+                        • Entry Date: 2026-09-29<br>
+                        • Stay Period: 30 days<br>
+                        • Accommodation: <strong>Hilton Garden Inn Bali Ngurah Rai Airport, Tuban, Bali, 80361</strong></li>
+                        <li>上传材料：护照首页 + 证件照 + 返程机票订单</li>
+                        <li>支付费用：Rp 500,000 签证费 + Rp 19,500 手续费 = <strong>Rp 519,500（约¥238）</strong></li>
+                        <li>收到批准函：邮箱收到PDF，打印2份</li>
+                        <li>入境时：走"eVOA"通道，出示护照和批准函</li>
+                    </ol>
+
+                    <div class="tip">
+                        💡 <strong>证件照提示</strong><br>
+                        实测：蓝底证件照+戴眼镜可以通过审核（不强制要求白底或摘眼镜）
+                    </div>
+                </div>
+            </div>
+
+            <!-- 巴厘岛旅游税 -->
+            <div class="expandable" onclick="toggleVisa('bali-tax')">
+                <div class="expandable-header">
+                    <span>🟡 巴厘岛旅游税</span>
+                    <span>▼</span>
+                </div>
+                <div class="expandable-content" id="bali-tax">
+                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>入境前任意时间</p>
+
+                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
+                    <ol class="step-list">
+                        <li>访问官网：<a href="https://lovebali.baliprov.go.id" target="_blank">lovebali.baliprov.go.id</a></li>
+                        <li>填写信息：姓名、护照号、入境日期(2026-09-29)、停留天数(4天)</li>
+                        <li>支付：Rp 150,000（约¥58），支持信用卡/支付宝</li>
+                        <li>保存凭证：收到电子收据PDF，截图保存到手机</li>
+                    </ol>
+
+                    <div class="tip">
+                        💡 同行3人各自办理，或一人代办（需所有人护照信息）
+                    </div>
+                </div>
+            </div>
+
+            <!-- 马来西亚MDAC -->
+            <div class="expandable" onclick="toggleVisa('malaysia')">
+                <div class="expandable-header">
+                    <span>🟢 马来西亚MDAC电子入境卡</span>
+                    <span>▼</span>
+                </div>
+                <div class="expandable-content" id="malaysia">
+                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>抵达马来西亚前3天内（9月26-29日）</p>
+
+                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
+                    <ol class="step-list">
+                        <li>访问官网：<a href="https://imigresen.gov.my/portal/mdac" target="_blank">imigresen.gov.my/portal/mdac</a></li>
+                        <li>填写信息：<br>
+                        • 航班号: AK519<br>
+                        • 抵达日期: 2026-09-29 01:20<br>
+                        • 酒店地址: <strong>The Platinum 2, Jalan Berangan, Bukit Bintang, Kuala Lumpur, 50200</strong></li>
+                        <li>提交：无需上传文件，免费，立即生成</li>
+                        <li>保存：截图保存二维码</li>
+                        <li>入境时：出示护照和MDAC二维码</li>
+                    </ol>
+
+                    <div class="tip">
+                        💡 电子护照可走e-Gate自助通道
+                    </div>
+                </div>
+            </div>
+
+            <!-- 印尼E-CD -->
+            <div class="expandable" onclick="toggleVisa('indonesia-ecd')">
+                <div class="expandable-header">
+                    <span>🟢 印尼E-CD海关申报</span>
+                    <span>▼</span>
+                </div>
+                <div class="expandable-content" id="indonesia-ecd">
+                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>抵达印尼前3天内（9月26-29日）</p>
+
+                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
+                    <ol class="step-list">
+                        <li>微信搜索 "Indonesia E-CD" 小程序</li>
+                        <li>填写申报：航班信息AK374、携带物品如实申报</li>
+                        <li>生成二维码：截图保存</li>
+                        <li>入境时：出示二维码给海关扫描</li>
+                    </ol>
+
+                    <div class="tip">
+                        💡 <strong>同行3人可以共用一个二维码</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文莱入境卡 -->
+            <div class="expandable" onclick="toggleVisa('brunei')">
+                <div class="expandable-header">
+                    <span>🟢 文莱E-Arrival Card</span>
+                    <span>▼</span>
+                </div>
+                <div class="expandable-content" id="brunei">
+                    <p style="margin-bottom: 12px;"><strong>办理时间：</strong>抵达文莱前48小时（10月5-7日）</p>
+
+                    <h4 style="margin: 16px 0 8px 0;">办理步骤</h4>
+                    <ol class="step-list">
+                        <li>访问官网：<a href="https://www.imm.gov.bn/Forms/e_arrival.aspx" target="_blank">imm.gov.bn/Forms/e_arrival.aspx</a></li>
+                        <li>填写信息：<br>
+                        • 航班号: BI736<br>
+                        • 抵达日期: 2026-10-07 16:40<br>
+                        • 酒店名称: <strong>Radisson Hotel Brunei Darussalam, Bandar Seri Begawan, BS8811</strong>（待订，如已订其他酒店请填写实际酒店名）<br>
+                        • 停留时间: 1晚</li>
+                        <li>提交：免费，立即生成</li>
+                        <li>保存：打印PDF或截图，入境时出示</li>
+                    </ol>
+
+                    <div class="tip">
+                        💡 <strong>文莱酒店待订提醒</strong><br>
+                        确定酒店后记得更新入境卡信息
+                    </div>
+                </div>
+            </div>
+
+            <!-- 香港 -->
+            <div class="expandable" onclick="toggleVisa('hongkong')">
+                <div class="expandable-header">
+                    <span>✅ 香港：无需办理</span>
+                    <span>▼</span>
+                </div>
+                <div class="expandable-content" id="hongkong">
+                    <p style="margin-bottom: 12px;"><strong>政策：</strong>持中国护照过境香港可停留7天免签</p>
+
+                    <p style="margin-bottom: 8px;"><strong>需要出示：</strong></p>
+                    <ul style="margin-left: 20px; margin-bottom: 12px;">
+                        <li>护照</li>
+                        <li>前往第三国的机票（已有）</li>
+                        <li>返回内地的机票（已有）</li>
+                    </ul>
+
+                    <div class="tip">
+                        💡 电子护照可走e-道自助通关，全程无需填表
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 24px;">📅 办理时间线</h3>
+
+            <div style="margin: 16px 0;">
+                <h4 style="color: #e74c3c; margin: 12px 0;">🔴 现在立即办理（9月13日）</h4>
+                <div style="padding: 12px; background: rgba(231, 76, 60, 0.05); border-radius: 8px; margin: 8px 0;">
+                    ✅ <strong>越南电子签证</strong>（最紧急！3-5工作日处理）
+                </div>
+            </div>
+
+            <div style="margin: 16px 0;">
+                <h4 style="color: #f39c12; margin: 12px 0;">🟡 9月15-20日</h4>
+                <div style="padding: 12px; background: rgba(243, 156, 18, 0.05); border-radius: 8px; margin: 8px 0;">
+                    ✅ <strong>印尼eVOA电子落地签</strong><br>
+                    ✅ <strong>巴厘岛旅游税</strong>
+                </div>
+            </div>
+
+            <div style="margin: 16px 0;">
+                <h4 style="color: #27ae60; margin: 12px 0;">🟢 9月26-27日（出发前2天）</h4>
+                <div style="padding: 12px; background: rgba(39, 174, 96, 0.05); border-radius: 8px; margin: 8px 0;">
+                    ✅ <strong>马来西亚MDAC入境卡</strong><br>
+                    ✅ <strong>印尼E-CD海关申报</strong>
+                </div>
+            </div>
+
+            <div style="margin: 16px 0;">
+                <h4 style="color: #3498db; margin: 12px 0;">📅 10月5-6日（到文莱前2天）</h4>
+                <div style="padding: 12px; background: rgba(52, 152, 219, 0.05); border-radius: 8px; margin: 8px 0;">
+                    ✅ <strong>文莱E-Arrival Card</strong>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 24px;">📝 重要提醒</h3>
+
+            <div style="margin: 16px 0;">
+                <h4>必须打印的文件</h4>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li>✅ 越南电子签证（2份）</li>
+                    <li>✅ 印尼eVOA批准函（2份）</li>
+                    <li>✅ 所有航班确认单（备用）</li>
+                </ul>
+            </div>
+
+            <div style="margin: 16px 0;">
+                <h4>手机截图保存</h4>
+                <ul style="margin-left: 20px; line-height: 2;">
+                    <li>✅ 巴厘岛旅游税收据</li>
+                    <li>✅ 印尼E-CD二维码</li>
+                    <li>✅ 马来西亚MDAC二维码</li>
+                    <li>✅ 文莱入境卡确认</li>
+                </ul>
+            </div>
+
+            <div class="warning" style="margin: 16px 0;">
+                <strong>⚠️ E开头护照特别准备</strong><br>
+                必须携带2张2寸白底照片（越南换签用）
+            </div>
+            </div>
+        </div>
+
+
+
+        <!-- 待办事项 -->
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('pending-items')">
+                <h2>⚠️ 待办事项</h2>
+                <span class="collapsible-icon" id="pending-items-icon">▼</span>
+            </div>
+            <div class="collapsible-content" id="pending-items">
+
+            <h3>🛒 待订订单</h3>
+<div class="booking-item pending">
+                <div class="booking-header">
+                    <div class="booking-title">🔴 巴厘岛住宿 9/30-10/2</div>
+                    <div class="booking-status pending">待订</div>
+                </div>
+                <div class="booking-detail">建议：乌布villa 2晚（9/30-10/1）+ 水明漾酒店1晚（10/2）</div>
+                <div class="booking-detail">💰 预算：约¥530-895/人（3人分摊）</div>
+                <div class="warning">⚠️ 国庆旺季，需立即预订！</div>
+            </div>
+
+            <div class="booking-item pending">
+                <div class="booking-header">
+                    <div class="booking-title">🔴 巴厘岛→泗水航班 10/3</div>
+                    <div class="booking-status pending">待订</div>
+                </div>
+                <div class="booking-detail">强烈建议：16:10 QG669 或 16:55 GA349</div>
+                <div class="booking-detail">💰 预算：约¥300-500/人</div>
+                <div class="warning">⚠️ 务必订下午班！晚班延误会导致通宵上火山</div>
+            </div>
+
+            <div class="booking-item pending">
+                <div class="booking-header">
+                    <div class="booking-title">泗水→雅加达航班 10/5晚</div>
+                    <div class="booking-status pending">待订</div>
+                </div>
+                <div class="booking-detail">建议：18:10 ID7579 或 19:15 ID6575（落CGK机场）</div>
+                <div class="booking-detail">💰 预算：约¥400-600/人</div>
+                <div class="warning">⚠️ 绝对别订落HLP机场的班次</div>
+            </div>
+
+            <div class="booking-item pending">
+                <div class="booking-header">
+                    <div class="booking-title">雅加达住宿 10/5-10/6</div>
+                    <div class="booking-status pending">待订</div>
+                </div>
+                <div class="booking-detail">建议：机场区万枫酒店（Fairfield by Marriott）</div>
+                <div class="booking-detail">💰 预算：约¥400-800/人（2晚）</div>
+            </div>
+
+            <div class="booking-item pending">
+                <div class="booking-header">
+                    <div class="booking-title">文莱住宿 10/7</div>
+                    <div class="booking-status pending">待订</div>
+                </div>
+                <div class="booking-detail">建议：Radisson Hotel Brunei（市中心，步行可达景点）</div>
+                <div class="booking-detail">💰 预算：约¥500-1,000/人</div>
+            </div>
+
+            <div class="booking-item pending">
+                <div class="booking-header">
+                    <div class="booking-title">布罗莫火山团 10/4</div>
+                    <div class="booking-status pending">待订</div>
+                </div>
+                <div class="booking-detail">凌晨01:00出发看日出，含沙海Jeep+火山口徒步</div>
+                <div class="booking-detail">💰 预算：约¥500-700/人</div>
+                <div class="tip">订前务必确认：航班延误可否免费改期</div>
+            </div>
+
+            <div class="booking-item pending">
+                <div class="booking-header">
+                    <div class="booking-title">佩尼达岛一日游 10/2</div>
+                    <div class="booking-status pending">待订</div>
+                </div>
+                <div class="booking-detail">含往返船票+岛上交通+午餐（Klook/淘宝）</div>
+                <div class="booking-detail">💰 预算：约¥300-400/人</div>
+                <div class="tip">需提前预订，当天很难有位</div>
+            </div>
+
+            <div class="booking-item pending">
+                <div class="booking-header">
+                    <div class="booking-title">滑翔伞体验 10/1</div>
+                    <div class="booking-status pending">待订</div>
+                </div>
+                <div class="booking-detail">Timbis Beach，飞行15-30分钟</div>
+                <div class="booking-detail">💰 预算：约¥250-350/人</div>
+            </div>
+
+            <h3 style="margin-top: 24px;">📋 行前清单</h3>
             <h3 style="color: #e74c3c;">🔴 立即办理（本周内）</h3>
             <ul class="todo-list">
                 <li class="todo-item urgent">□ 越南电子签（evisa.gov.vn，$25）</li>
@@ -1882,7 +1770,6 @@
                 <li class="todo-item">□ 越捷段值机记得贴手提行李标签</li>
                 <li class="todo-item">□ 落地取印尼盾现金</li>
             </ul>
-        </div>
 
             </div>
         </div>
@@ -1895,152 +1782,263 @@
             </div>
             <div class="collapsible-content" id="tips">
 
-            <h3>🔴 三大关键建议</h3>
-            <div class="warning" style="margin-bottom: 12px;">
-                <strong>1. 改订10/3下午航班！</strong><br>
-                原计划20:00起飞只能睡3.5h，改订16:10/16:55可睡6h。印尼航班延误常态，晚班一旦延误就通宵上火山。
+            <h3>🎒 需要携带的东西（25L登山包）</h3>
+            
+            <h4 style="margin: 16px 0 8px 0; color: #e74c3c;">📱 证件&电子设备（最重要）</h4>
+            <ul class="todo-list">
+                <li class="todo-item">护照（有效期6个月以上）+ 2张纸质照片（越南换签用）</li>
+                <li class="todo-item">所有签证批准函打印件（越南、印尼eVOA）</li>
+                <li class="todo-item">航班确认单打印件（8段全部）</li>
+                <li class="todo-item">酒店预订单打印件</li>
+                <li class="todo-item">手机 + 充电线 + 充电宝（20000mAh以内，带上飞机）</li>
+                <li class="todo-item">转换插头（英标，适用印尼/马来/文莱/香港）</li>
+                <li class="todo-item">信用卡（Visa/Master）+ 少量美元现金（$100-200备用）</li>
+            </ul>
+
+            <h4 style="margin: 16px 0 8px 0; color: #3498db;">👕 衣物（东南亚热带）</h4>
+            <ul class="todo-list">
+                <li class="todo-item">T恤 3-4件（速干面料）</li>
+                <li class="todo-item">短裤/长裤各1条（轻薄速干）</li>
+                <li class="todo-item">内衣裤 4套（一次性或速干款）</li>
+                <li class="todo-item">袜子 2-3双</li>
+                <li class="todo-item">拖鞋1双（酒店/沙滩）</li>
+                <li class="todo-item">轻便运动鞋（爬火山/徒步用）</li>
+                <li class="todo-item">泳裤（浮潜/海滩）</li>
+                <li class="todo-item">薄外套1件（飞机上空调冷）</li>
+                <li class="todo-item">遮阳帽 + 墨镜</li>
+            </ul>
+
+            <h4 style="margin: 16px 0 8px 0; color: #27ae60;">🧴 洗护&防晒</h4>
+            <ul class="todo-list">
+                <li class="todo-item">防晒霜SPF50+（热带必备，100ml以内）</li>
+                <li class="todo-item">晒后修复芦荟胶</li>
+                <li class="todo-item">洗面奶、牙刷牙膏（旅行装）</li>
+                <li class="todo-item">驱蚊液/驱蚊贴（登革热高发区）</li>
+                <li class="todo-item">湿纸巾 + 纸巾</li>
+            </ul>
+
+            <h4 style="margin: 16px 0 8px 0; color: #f39c12;">💊 药品&应急</h4>
+            <ul class="todo-list">
+                <li class="todo-item">肠胃药（泻立停/诺氟沙星）</li>
+                <li class="todo-item">感冒药（999/白加黑）</li>
+                <li class="todo-item">创可贴 + 碘伏棉签</li>
+                <li class="todo-item">晕车/晕船药</li>
+                <li class="todo-item">个人常用药</li>
+            </ul>
+
+            <h4 style="margin: 16px 0 8px 0; color: #9b59b6;">🌊 户外活动装备</h4>
+            <ul class="todo-list">
+                <li class="todo-item">浮潜装备：浮潜面镜（自己带更卫生）</li>
+                <li class="todo-item">防水袋/防水手机袋（沙滩/浮潜保护手机）</li>
+                <li class="todo-item">头巾/魔术巾（爬火山防灰尘）</li>
+                <li class="todo-item">小手电/头灯（爬火山看日出用）</li>
+            </ul>
+
+            <h4 style="margin: 16px 0 8px 0;">💡 打包技巧</h4>
+            <div class="tip">
+                • 衣物用压缩袋节省空间<br>
+                • 充电线、充电宝放随身包方便取用<br>
+                • 液体装透明密封袋（过安检要求）<br>
+                • 护照、现金、卡放贴身腰包最安全<br>
+                • 行李箱照片（万一托运丢失便于识别）<br>
+                • 25L登山包推荐品牌：迪卡侬、骆驼、小米
             </div>
-            <div class="warning" style="margin-bottom: 12px;">
-                <strong>2. 河内17h中转必须补觉</strong><br>
-                市区开钟点房睡4h（约$15-25），这是全程最重要的补觉窗口。
+
+
+            <hr style="margin: 32px 0; border: none; border-top: 1px solid #eee;">
+
+
             </div>
-            <div class="warning" style="margin-bottom: 20px;">
-                <strong>3. 泗水→雅加达别订HLP机场</strong><br>
-                HLP距CGK有1.5h车程，10/7从CGK飞文莱。
-            </div>
-
-            <h3>📱 通讯与网络</h3>
-            <p>• 印尼：Telkomsel信号最好（机场买实体卡，30GB约Rp 150k-300k）</p>
-            <p>• ⚠️ 国行iPhone不支持eSIM，只能买实体卡</p>
-            <p>• 插头：印尼欧标C/F，马来/文莱/香港英标G，带万能转换头+小插排</p>
-            <p>• 充电宝：≤100Wh（约27000mAh），随身携带</p>
-
-            <h3>💰 支付与货币</h3>
-            <p>• 汇率参考：1 CNY = 2,610 IDR · 1 HKD = 0.8561 CNY</p>
-            <p>• 印尼：Visa/Master通用，小店夜市只收现金</p>
-            <p>• 文莱：现金为王，微信支付宝几乎不可用</p>
-            <p>• 巴厘岛市场砍价：开价可砍至3-5折</p>
-
-            <h3>⚠️ 文莱特殊规定</h3>
-            <p>• 严禁携带烟酒入境</p>
-            <p>• 禁止携带含吗啡、可待因、伪麻黄碱药品</p>
-            <p>• 清真寺参观需长袖长裤（女生带头巾）</p>
-            <p>• 避免大面积黄色（王室专属色）</p>
-
-            <h3>🏥 健康安全</h3>
-            <p>• 登革热：白天也要喷驱蚊液（DEET成分）</p>
-            <p>• 巴厘肚：备好蒙脱石散/黄连素</p>
-            <p>• 布罗莫火山：海拔2000m注意高反，避开硫烟</p>
-            <p>• 佩尼达岛：提前吃晕船药，快船可能颠簸</p>
-
-            <h3>🎒 行李提醒</h3>
-            <p>• 全程可用20寸登机箱不托运（6段航班均限7kg手提）</p>
-            <p>• 火山装备：厚外套、长裤、防滑鞋、口罩、头灯</p>
-            <p>• 佩尼达岛：防晒霜、水、零食、防水袋、防滑鞋</p>
-            <p>• 寺庙参观：沙龙（圣泉寺可租用）</p>
-
-            <h3>📞 紧急联系</h3>
-            <p>• 中国驻印尼大使馆：+62-21-5761037</p>
-            <p>• 中国驻文莱大使馆：+673-2230005</p>
-            <p>• 印尼报警：110 · 救护：118</p>
-            <p>• 文莱报警：993 · 救护：991</p>
         </div>
-    </div>
+
+        <!-- 已确认订单 -->
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('confirmed-bookings')">
+                <h2>✅ 已确认订单</h2>
+                <span class="collapsible-icon" id="confirmed-bookings-icon">▼</span>
+            </div>
+            <div class="collapsible-content" id="confirmed-bookings">
+
+            <h3>航班</h3>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">VJ7713 越捷航空</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">9月28日 01:20 北京大兴 → 03:55 河内</div>
+                <div class="booking-detail">💺 单人票 · ¥1,870（含后续联程）</div>
+                <div class="tip">⏰ 建议9月27日 22:00前值机</div>
+            </div>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">AK519 亚洲航空</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">9月28日 21:00 河内 → 9月29日 01:20 吉隆坡</div>
+            </div>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">AK374 亚洲航空</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">9月29日 18:35 吉隆坡 → 21:45 登巴萨（巴厘岛）</div>
+            </div>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">BI736 文莱皇家航空</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">10月7日 13:10 雅加达 CGK T3 → 16:40 斯里巴加湾</div>
+                <div class="booking-detail">💺 ¥1,199（含后续至香港联程）</div>
+            </div>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">BI635 文莱皇家航空</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">10月8日 10:25 斯里巴加湾 → 13:35 香港</div>
+            </div>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">UO234 香港快运</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">10月10日 22:15 香港 T2 → 10月11日 01:35 北京大兴</div>
+                <div class="booking-detail">💺 ¥643 · 预订号 XEUBHX · 已含手提行李额</div>
+            </div>
+
+            <h3>酒店</h3>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">The Platinum 2 KL by Holma</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">📍 <a href="https://www.google.com/maps/search/?api=1&query=The+Platinum+2+KL+Kuala+Lumpur" class="location-link" target="_blank">吉隆坡双子塔附近</a></div>
+                <div class="booking-detail">📅 9月29日凌晨入住 - 12:00退房</div>
+                <div class="booking-detail">🛏️ 72㎡特大床公寓 · ¥398（2人分摊）</div>
+                <div class="booking-detail">📋 订单号: 454577299289</div>
+            </div>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">巴厘岛机场希尔顿花园酒店</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">📍 <a href="https://www.google.com/maps/search/?api=1&query=Hilton+Garden+Inn+Bali+Ngurah+Rai+Airport" class="location-link" target="_blank">巴厘岛图班（机场区）</a></div>
+                <div class="booking-detail">📅 9月29日晚 - 9月30日 12:00退房</div>
+                <div class="booking-detail">🛏️ 30㎡双床房 · 含9月30日早餐2份 · ¥490（2人分摊）</div>
+                <div class="booking-detail">📋 订单号: 454577399494</div>
+            </div>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">泗水JW万豪酒店</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">📍 <a href="https://www.google.com/maps/search/?api=1&query=JW+Marriott+Hotel+Surabaya" class="location-link" target="_blank">泗水市中心</a></div>
+                <div class="booking-detail">📅 10月3日 14:00入住 - 10月5日退房（可延至16:00）</div>
+                <div class="booking-detail">🛏️ 42㎡双床房 · 2晚 · ¥1,376</div>
+                <div class="booking-detail">💡 10/3晚3人分摊，10/4晚2人分摊</div>
+                <div class="booking-detail">📋 订单号: 454577374866</div>
+            </div>
+
+            <div class="booking-item confirmed">
+                <div class="booking-header">
+                    <div class="booking-title">香港君悦酒店</div>
+                    <div class="booking-status">已确认</div>
+                </div>
+                <div class="booking-detail">📍 <a href="https://www.google.com/maps/search/?api=1&query=Grand+Hyatt+Hong+Kong" class="location-link" target="_blank">香港湾仔</a></div>
+                <div class="booking-detail">📅 10月8日 - 10月10日退房</div>
+                <div class="booking-detail">🛏️ 2晚 · HK$1,900/晚 · 约¥3,253（2人分摊）</div>
+            </div>
+        </div>
+
 
     <script>
-        // 时区配置
-        const TIMEZONES = {
-            'Beijing': 'Asia/Shanghai',      // UTC+8
-            'Hanoi': 'Asia/Ho_Chi_Minh',     // UTC+7
-            'KL': 'Asia/Kuala_Lumpur',       // UTC+8
-            'Bali': 'Asia/Makassar',         // UTC+8
-            'Surabaya': 'Asia/Jakarta',      // UTC+7
-            'Jakarta': 'Asia/Jakarta',       // UTC+7
-            'Brunei': 'Asia/Brunei',         // UTC+8
-            'HongKong': 'Asia/Hong_Kong'     // UTC+8
-        };
+        // 倒计时功能 - 出发前追踪待办事项，出发后追踪航班
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const departureTime = new Date('2026-09-28T01:20:00+08:00').getTime();
 
-        // 行程事件列表
-        const events = [
-            { name: '出发：北京→河内', datetime: '2026-09-28T01:20:00+08:00', tz: 'Beijing' },
-            { name: '抵达河内', datetime: '2026-09-28T03:55:00+07:00', tz: 'Hanoi' },
-            { name: '河内→吉隆坡', datetime: '2026-09-28T21:00:00+07:00', tz: 'Hanoi' },
-            { name: '抵达吉隆坡', datetime: '2026-09-29T01:20:00+08:00', tz: 'KL' },
-            { name: '吉隆坡→巴厘岛', datetime: '2026-09-29T18:35:00+08:00', tz: 'KL' },
-            { name: '抵达巴厘岛', datetime: '2026-09-29T21:45:00+08:00', tz: 'Bali' },
-            { name: '巴厘岛→泗水', datetime: '2026-10-03T16:10:00+08:00', tz: 'Bali' },
-            { name: '布罗莫火山日出', datetime: '2026-10-04T01:00:00+07:00', tz: 'Surabaya' },
-            { name: '泗水→雅加达', datetime: '2026-10-05T18:10:00+07:00', tz: 'Surabaya' },
-            { name: '雅加达→文莱', datetime: '2026-10-07T13:10:00+07:00', tz: 'Jakarta' },
-            { name: '文莱→香港', datetime: '2026-10-08T10:25:00+08:00', tz: 'Brunei' },
-            { name: '香港→北京', datetime: '2026-10-10T22:15:00+08:00', tz: 'HongKong' },
-            { name: '抵达北京', datetime: '2026-10-11T01:35:00+08:00', tz: 'Beijing' }
-        ];
+            let events = [];
 
-        // 查找下一个事件
-        function findNextEvent() {
-            const now = new Date();
+            // 判断是否已出发
+            if (now < departureTime) {
+                // 出发前：追踪待办事项（按时间顺序）
+                events = [
+                    { name: '巴厘岛住宿预订（国庆旺季）', date: '2026-09-20T23:59:59+08:00', urgent: true },
+                    { name: '文莱酒店预订', date: '2026-09-25T23:59:59+08:00', urgent: false },
+                    { name: '办理印尼eVOA', date: '2026-09-25T23:59:59+08:00', urgent: false },
+                    { name: '办理越南电子签', date: '2026-09-26T23:59:59+08:00', urgent: false },
+                    { name: '印尼E-CD填写（入境前3天）', date: '2026-09-26T23:59:59+08:00', urgent: false },
+                    { name: '马来西亚MDAC填写（抵达前3天）', date: '2026-09-26T23:59:59+08:00', urgent: false },
+                    { name: '出发！VJ7713 北京→河内', date: '2026-09-28T01:20:00+08:00', urgent: false }
+                ];
+            } else {
+                // 出发后：追踪航班起飞时间
+                events = [
+                    { name: '✈️ VJ7713 北京→河内', date: '2026-09-28T01:20:00+08:00' },
+                    { name: '✈️ AK519 河内→吉隆坡', date: '2026-09-28T21:00:00+08:00' },
+                    { name: '✈️ AK374 吉隆坡→巴厘岛', date: '2026-09-29T09:40:00+08:00' },
+                    { name: '✈️ 巴厘岛→泗水（待订）', date: '2026-10-03T16:10:00+08:00' },
+                    { name: '✈️ 泗水→雅加达（待订）', date: '2026-10-05T18:10:00+08:00' },
+                    { name: '✈️ BI736 雅加达→文莱', date: '2026-10-07T13:15:00+08:00' },
+                    { name: '✈️ BI635 文莱→香港', date: '2026-10-08T10:25:00+08:00' },
+                    { name: '✈️ UO234 香港→北京', date: '2026-10-10T22:15:00+08:00' }
+                ];
+            }
+
+            // 找到下一个未过期的事项
+            let nextEvent = null;
             for (let event of events) {
-                const eventTime = new Date(event.datetime);
+                const eventTime = new Date(event.date).getTime();
                 if (eventTime > now) {
-                    return { event, eventTime };
+                    nextEvent = event;
+                    break;
                 }
             }
-            return null;
-        }
 
-        // 更新倒计时
-        function updateCountdown() {
-            const next = findNextEvent();
-
-            if (!next) {
-                document.getElementById('nextEvent').textContent = '旅程已结束';
-                document.getElementById('days').textContent = '0';
-                document.getElementById('hours').textContent = '0';
-                document.getElementById('minutes').textContent = '0';
-                document.getElementById('seconds').textContent = '0';
+            if (!nextEvent) {
+                document.getElementById('nextEvent').textContent = now < departureTime ? '所有准备工作已完成！' : '旅程结束，平安到家！';
                 return;
             }
 
-            const { event, eventTime } = next;
-            const now = new Date();
-            const diff = eventTime - now;
+            const targetDate = new Date(nextEvent.date).getTime();
+            const distance = targetDate - now;
 
-            if (diff < 0) {
-                updateCountdown();
-                return;
-            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('nextEvent').textContent = event.name;
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            // 更新显示
+            document.getElementById('nextEvent').textContent = nextEvent.name + (nextEvent.urgent ? ' 🔴' : '');
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
         }
 
-        // 展开/收起日程
-        function toggleDay(dayId) {
-            const content = document.getElementById(dayId);
-            content.classList.toggle('active');
-        }
-
-        // 初始化
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // 默认展开第一天
-        document.addEventListener('DOMContentLoaded', function() {
-            const firstDay = document.querySelector('.day-content');
-            if (firstDay) {
-                firstDay.classList.add('active');
-            }
-        });
+        // 可折叠章节功能
+        function toggleSection(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
 
+            content.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // 签证展开功能
         function toggleVisa(id) {
             const content = document.getElementById(id);
             const allContents = document.querySelectorAll('.expandable-content');
@@ -2056,14 +2054,11 @@
             content.classList.toggle('active');
         }
 
-        function toggleSection(id) {
-            const content = document.getElementById(id);
-            const icon = document.getElementById(id + '-icon');
-
+        // 逐日行程展开功能
+        function toggleDay(dayId) {
+            const content = document.getElementById(dayId);
             content.classList.toggle('active');
-            icon.classList.toggle('active');
         }
-
     </script>
 </body>
 </html>
