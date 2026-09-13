@@ -183,6 +183,60 @@
             text-decoration: underline;
         }
 
+        /* 可折叠章节 */
+        .collapsible-section {
+            margin-bottom: 20px;
+        }
+
+        .collapsible-header {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .collapsible-header:hover {
+            background: rgba(52, 152, 219, 0.05);
+        }
+
+        .collapsible-header h2 {
+            margin: 0;
+            font-size: 22px;
+            color: var(--accent-color);
+            flex: 1;
+        }
+
+        .collapsible-icon {
+            font-size: 24px;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .collapsible-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            display: none;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .collapsible-content.active {
+            display: block;
+        }
+
         /* 时间线 */
         .timeline {
             position: relative;
@@ -497,8 +551,12 @@
         </div>
 
         <!-- 行程总览 -->
-        <div class="card">
-            <h2>🗺️ 行程总览</h2>
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('route-overview')">
+                <h2>🗺️ 行程总览</h2>
+                <span class="collapsible-icon" id="route-overview-icon">▼</span>
+            </div>
+            <div class="collapsible-content active" id="route-overview">
             <p style="margin-bottom: 16px;">2026年9月27日深夜 - 10月11日凌晨 · 14天13晚 · 8段航班</p>
 
             <!-- 航线流程图 -->
@@ -666,11 +724,16 @@
                     <div style="font-size: 13px; color: #666;">住宿晚数</div>
                 </div>
             </div>
+            </div>
         </div>
 
         <!-- 签证入境卡总览 -->
-        <div class="card">
-            <h2>🛂 签证与入境卡攻略</h2>
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('visa-overview')">
+                <h2>🛂 签证与入境卡攻略</h2>
+                <span class="collapsible-icon" id="visa-overview-icon">▼</span>
+            </div>
+            <div class="collapsible-content active" id="visa-overview">
             <p style="margin-bottom: 16px;">以下是你需要办理的所有签证和入境卡，按紧急程度排序：</p>
 
             <div class="visa-grid">
@@ -968,13 +1031,18 @@
                 <strong>⚠️ E开头护照特别准备</strong><br>
                 必须携带2张2寸白底照片（越南换签用）
             </div>
+            </div>
         </div>
 
 
 
         <!-- 已确认订单 -->
-        <div class="card">
-            <h2>✅ 已确认订单</h2>
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('confirmed-bookings')">
+                <h2>✅ 已确认订单</h2>
+                <span class="collapsible-icon" id="confirmed-bookings-icon">▼</span>
+            </div>
+            <div class="collapsible-content" id="confirmed-bookings">
 
             <h3>航班</h3>
 
@@ -1077,9 +1145,16 @@
             </div>
         </div>
 
+            </div>
+        </div>
+
         <!-- 待订事项 -->
-        <div class="card">
-            <h2>⚠️ 待订事项</h2>
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('pending-bookings')">
+                <h2>⚠️ 待订事项</h2>
+                <span class="collapsible-icon" id="pending-bookings-icon">▼</span>
+            </div>
+            <div class="collapsible-content" id="pending-bookings">
 
             <div class="booking-item pending">
                 <div class="booking-header">
@@ -1159,9 +1234,16 @@
             </div>
         </div>
 
+            </div>
+        </div>
+
         <!-- 逐日行程 -->
-        <div class="card">
-            <h2>📅 逐日行程</h2>
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('daily-itinerary')">
+                <h2>📅 逐日行程</h2>
+                <span class="collapsible-icon" id="daily-itinerary-icon">▼</span>
+            </div>
+            <div class="collapsible-content" id="daily-itinerary">
 
             <div class="day-header" onclick="toggleDay('day1')">
                 9月27日（周日）深夜 - 出发准备
@@ -1736,9 +1818,16 @@
             </div>
         </div>
 
+            </div>
+        </div>
+
         <!-- 待办清单 -->
-        <div class="card">
-            <h2>✅ 待办清单</h2>
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('todo-list')">
+                <h2>✅ 待办清单</h2>
+                <span class="collapsible-icon" id="todo-list-icon">▼</span>
+            </div>
+            <div class="collapsible-content" id="todo-list">
 
             <h3 style="color: #e74c3c;">🔴 立即办理（本周内）</h3>
             <ul class="todo-list">
@@ -1773,9 +1862,16 @@
             </ul>
         </div>
 
+            </div>
+        </div>
+
         <!-- 实用贴士 -->
-        <div class="card">
-            <h2>💡 实用贴士</h2>
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleSection('tips')">
+                <h2>💡 实用贴士</h2>
+                <span class="collapsible-icon" id="tips-icon">▼</span>
+            </div>
+            <div class="collapsible-content" id="tips">
 
             <h3>🔴 三大关键建议</h3>
             <div class="warning" style="margin-bottom: 12px;">
@@ -1936,6 +2032,14 @@
 
             // 切换当前项
             content.classList.toggle('active');
+        }
+
+        function toggleSection(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+
+            content.classList.toggle('active');
+            icon.classList.toggle('active');
         }
 
     </script>
