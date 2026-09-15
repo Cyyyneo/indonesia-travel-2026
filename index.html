@@ -31,14 +31,38 @@
             box-sizing: border-box;
         }
 
+        html {
+            height: 100%;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
-            background: url('kelingking-hd.jpg') center center no-repeat fixed;
+            background: url('kelingking-hd.jpg') center center no-repeat;
             background-size: cover;
+            background-attachment: fixed;
             color: var(--text-color);
             line-height: 1.6;
             padding-bottom: 60px;
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* iOS Safari 背景固定修复 */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                background-attachment: scroll;
+            }
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url('kelingking-hd.jpg') center center no-repeat;
+                background-size: cover;
+                z-index: -1;
+            }
         }
 
         .container {
@@ -2153,6 +2177,7 @@
                 <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
                     <a href="https://drive.google.com/file/d/1C17MLXM7FT3vYgMDKNSrXRIBUOEvzo88/view?usp=drive_web" target="_blank" style="background: #3498db; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📄 查看行程单</a>
                     <a href="https://drive.google.com/file/d/18xygQHf_bQuTkj_5_PqelVNQY3A3fJTc/view?usp=drive_web" target="_blank" style="background: #2ecc71; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">📋 查看出行单</a>
+                    <a href="https://drive.google.com/file/d/1BvpGp-IMQXnpS60Lbc7kDuG8IQHYNQ94/view?usp=drive_link" target="_blank" style="background: #9b59b6; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; border: none; cursor: pointer;">🎫 电子登机牌</a>
                 </div>
             </div>
 
